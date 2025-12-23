@@ -16,7 +16,7 @@ public class LibraryApp {
 
         while (running) {
             printMenu();
-            System.out.print("Выберите действие: ");
+            System.out.print(" ");
             String choice = scanner.nextLine();
 
             switch (choice) {
@@ -40,10 +40,10 @@ public class LibraryApp {
                     break;
                 case "7":
                     running = false;
-                    System.out.println("Выход из приложения.");
+                    System.out.println(" ");
                     break;
                 default:
-                    System.out.println("Неверный ввод. Попробуйте снова.");
+                    System.out.println(" ");
             }
             System.out.println();
         }
@@ -51,19 +51,19 @@ public class LibraryApp {
     }
 
     private void printMenu() {
-        System.out.println("Добро пожаловать в Library App!");
-        System.out.println("1. Показать все книги");
-        System.out.println("2. Добавить новую книгу");
-        System.out.println("3. Поиск книг по названию");
-        System.out.println("4. Взять книгу");
-        System.out.println("5. Вернуть книгу");
-        System.out.println("6. Удалить книгу по id");
-        System.out.println("7. Выйти");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
     }
 
     private void printAllBooks() {
         if (books.isEmpty()) {
-            System.out.println("В библиотеке нет книг.");
+            System.out.println("  ");
         } else {
             for (Book book : books) {
                 System.out.println(book);
@@ -73,25 +73,25 @@ public class LibraryApp {
 
     private void addNewBook() {
         try {
-            System.out.print("Введите название: ");
+            System.out.print(" ");
             String title = scanner.nextLine();
 
-            System.out.print("Введите автора: ");
+            System.out.print(" ");
             String author = scanner.nextLine();
 
-            System.out.print("Введите год издания: ");
+            System.out.print(" ");
             int year = Integer.parseInt(scanner.nextLine());
 
             Book book = new Book(title, author, year);
             books.add(book);
-            System.out.println("Книга успешно добавлена.");
+            System.out.println(" ");
         } catch (Exception e) {
-            System.out.println("Ошибка: " + e.getMessage());
+            System.out.println(" " + e.getMessage());
         }
     }
 
     private void searchBooksByTitle() {
-        System.out.print("Введите часть названия для поиска: ");
+        System.out.print(" ");
         String searchTerm = scanner.nextLine().toLowerCase();
 
         boolean found = false;
@@ -103,12 +103,12 @@ public class LibraryApp {
         }
 
         if (!found) {
-            System.out.println("Книги с таким названием не найдены.");
+            System.out.println(" ");
         }
     }
 
     private void borrowBook() {
-        System.out.print("Введите id книги: ");
+        System.out.print(" ");
         try {
             int id = Integer.parseInt(scanner.nextLine());
             Book foundBook = findBookById(id);
@@ -116,20 +116,20 @@ public class LibraryApp {
             if (foundBook != null) {
                 if (foundBook.isAvailable()) {
                     foundBook.markAsBorrowed();
-                    System.out.println("Книга успешно выдана.");
+                    System.out.println(" ");
                 } else {
-                    System.out.println("Книга уже выдана.");
+                    System.out.println(" ");
                 }
             } else {
-                System.out.println("Книга с id=" + id + " не найдена.");
+                System.out.println(" " + id + "  ");
             }
         } catch (NumberFormatException e) {
-            System.out.println("Неверный формат id.");
+            System.out.println(" ");
         }
     }
 
     private void returnBook() {
-        System.out.print("Введите id книги: ");
+        System.out.print(" ");
         try {
             int id = Integer.parseInt(scanner.nextLine());
             Book foundBook = findBookById(id);
@@ -137,32 +137,32 @@ public class LibraryApp {
             if (foundBook != null) {
                 if (!foundBook.isAvailable()) {
                     foundBook.markAsReturned();
-                    System.out.println("Книга успешно возвращена.");
+                    System.out.println(" ");
                 } else {
-                    System.out.println("Книга уже доступна.");
+                    System.out.println(" ");
                 }
             } else {
-                System.out.println("Книга с id=" + id + " не найдена.");
+                System.out.println(" " + id + "  ");
             }
         } catch (NumberFormatException e) {
-            System.out.println("Неверный формат id.");
+            System.out.println(" ");
         }
     }
 
     private void deleteBookById() {
-        System.out.print("Введите id книги для удаления: ");
+        System.out.print(" ");
         try {
             int id = Integer.parseInt(scanner.nextLine());
             Book foundBook = findBookById(id);
 
             if (foundBook != null) {
                 books.remove(foundBook);
-                System.out.println("Книга успешно удалена.");
+                System.out.println(" ");
             } else {
-                System.out.println("Книга с id=" + id + " не найдена.");
+                System.out.println(" " + id + " ");
             }
         } catch (NumberFormatException e) {
-            System.out.println("Неверный формат id.");
+            System.out.println(" ");
         }
     }
 

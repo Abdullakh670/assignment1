@@ -30,7 +30,7 @@ public class Book {
 
     public void setTitle(String title) {
         if (title == null || title.trim().isEmpty()) {
-            throw new IllegalArgumentException("Название не может быть пустым");
+            throw new IllegalArgumentException("The name cannot be empty");
         }
         this.title = title;
     }
@@ -41,7 +41,7 @@ public class Book {
 
     public void setAuthor(String author) {
         if (author == null || author.trim().isEmpty()) {
-            throw new IllegalArgumentException("Автор не может быть пустым");
+            throw new IllegalArgumentException("The author cannot be empty");
         }
         this.author = author;
     }
@@ -53,7 +53,7 @@ public class Book {
     public void setYear(int year) {
         int currentYear = Year.now().getValue();
         if (year < 1500 || year > currentYear) {
-            throw new IllegalArgumentException("Год должен быть в диапазоне 1500-" + currentYear);
+            throw new IllegalArgumentException("The year must be in the range 1500-" + currentYear);
         }
         this.year = year;
     }
@@ -77,8 +77,8 @@ public class Book {
 
     @Override
     public String toString() {
-        String status = available ? "Доступна" : "Выдана";
-        return String.format("Книга [id=%d, название='%s', автор='%s', год=%d, статус=%s]", 
+        String status = available ? "Available" : "Issued";
+        return String.format("Book [id=%d, title='%s', author='%s', year=%d, status=%s]", 
                              id, title, author, year, status);
     }
 }

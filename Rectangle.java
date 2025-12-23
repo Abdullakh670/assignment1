@@ -56,6 +56,6 @@ public class Rectangle {
 
     @Override
     public String toString() {
-        return String.format("Прямоугольник [id=%d, ширина=%.2f, высота=%.2f]", id, width, height);
+        return String.format("Rectangle [id=%d, width=%.2f, height=%.2f]]", id, width, height);
     }
 }
